@@ -1,0 +1,396 @@
+\documentclass[a4paper, 10pt]{scrbook}
+
+\usepackage[style=alphabetic, backend=biber, isbn=false, doi=false, maxcitenames=2, autolang=langname, maxbibnames=99]{biblatex}
+\addbibresource{literature.bib}
+%%% No pagebreak before bibliography:
+\defbibheading{secbib}[\bibname]{%
+  \section*{#1}%
+  \markboth{#1}{#1}}
+%%%
+
+\setcounter{secnumdepth}{3}
+%%% Number width in toc
+\usepackage{tocloft}
+\renewcommand\cftpartnumwidth{1.5cm}
+%%% Seperate ToC for appendix:
+\usepackage{etoc}
+%%%
+% \usepackage{helvet}
+\usepackage[sfdefault]{andika}
+% \usepackage[
+% %   italic,
+%     symbolgreek
+%     ]{mathastext}
+% \usepackage[bb=px]{mathalpha}
+
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{1.75ex \@plus 1ex \@minus .2ex}{-1em}%
+  {\sffamily\small\bfseries}%
+}
+\makeatother
+
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{schule}
+
+\usepackage{array}
+\usepackage{tabularx}
+\newcommand{\rowheight}{\parbox[c][1cm][s]{0.1cm}{~}}
+\newcommand{\rowheightTable}{\parbox[c][2cm][s]{0.1cm}{~}}
+
+\usepackage[shortlabels]{enumitem}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+
+\usepackage{wrapfig}
+\usepackage[font=small,labelfont=bf, format=plain]{caption}
+
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=3cm}
+\usepackage{multicol}
+\usepackage{amsmath, amssymb}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\usepackage{amsthm}
+\newtheorem*{thm}{Satz}
+\newtheorem*{defn}{Definition}
+\newtheorem*{claim}{Behauptung}
+\newtheorem*{ex}{Beispiel}
+\newtheorem*{caution}{Achtung}
+\newtheorem*{exercise}{Aufgabe(n)}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc,patterns,angles,quotes}
+
+\newcommand{\kariert}[3][]{
+	\begin{tikzpicture}
+	\draw[step=0.5cm,color=gray!50] (0,0) grid (#2 cm ,#3 cm);
+	\node[anchor=north west] at (0,#3-.5) {#1};
+	\end{tikzpicture}}
+\newcommand{\kariertTop}[3][]{
+	\begin{tikzpicture}
+	\draw[step=0.5cm,color=gray!50] (0,0) grid (#2 cm ,#3 cm);
+	\node[anchor=north west] at (0,#3) {#1};
+	\end{tikzpicture}}
+	
+\tikzset{mygrid/.style={line width=1pt, dash pattern=on 0mm off 5mm, line cap=round}}
+\newcommand{\dotted}[2]{
+	\begin{tikzpicture}
+        % \draw[step=0.5cm,color=gray,mygrid] (0,0) grid (#1,#2);
+        \draw[step=0.5cm,color=gray,mygrid] (0,0) grid (#1 cm,#2 cm);
+    \end{tikzpicture}
+    }
+    
+\usepackage[ngerman]{babel}
+
+\newcommand{\checked}{\makebox[0pt][l]{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}}
+
+
+\renewcommand{\vec}[2]{\begin{pmatrix}
+           #1 \\
+           #2 
+         \end{pmatrix}}
+         
+\newcommand{\vc}[1]{\overrightarrow{#1}}
+
+\newcommand{\highlight}{\bfseries\color{blue!50!black}}
+
+\newcommand\myfbox[2]{\fcolorbox{white}{#1}{#2}}
+
+\newcommand\el{\text{e}}
+
+\title{PAM}
+\subtitle{25Mz -- HS 24/25}
+\author{Franziska Flegel}
+\date{~}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\etocdepthtag.toc{mtchapter}
+\etocsettagdepth{mtchapter}{subsection}
+\etocsettagdepth{mtappendix}{none}
+\tableofcontents
+
+\etoctocstyle{1}{Anhang}
+\etocdepthtag.toc{mtchapter}
+\etocsettagdepth{mtchapter}{none}
+\etocsettagdepth{mtappendix}{chapter}
+\tableofcontents
+
+\mainmatter
+
+\chapter{Einführung in die Quantenphysik}
+\section{Quantelung des Lichts}
+\subsection{Hallwachs-Versuch}
+Siehe Material zur Stunde am Dienstag, den 05.11.2024.\\
+Literatur: Dorn-Bader SII Gesamtband Gymnasium 2023, S. 304--305 \cite{DornBader2023} 
+\subsection{Bestimmung von $h$ mit der Gegenfeldmethode}
+Siehe Material zur Stunde am Mittwoch, den 06.11.2024.\\
+Simulation:\\~\\
+  \begin{minipage}[t]{.15\linewidth}
+  ~\\\vspace{-1cm}
+  \includegraphics[width=\linewidth]{images/gym-wst-QR}
+ \end{minipage}
+ \hfill
+ \begin{minipage}[t]{.8\linewidth}
+  \url{https://www.physik.gym-wst.de/localhtml/qp/02_photoeffekt02/photoeffekt02.html}\\
+ \end{minipage}
+\subsection{Umkehrung des Fotoeffekts mit LEDs}
+Siehe Material zur Stunde am Donnerstag, den 07.11.2024.\\
+Literatur: Metzler Physik, 4. Auflage, S. 381 \cite{Metzler2007}.
+\subsection{Kurzwellige Grenze von Röntgenlicht}
+Siehe Material zur Stunde am Donnerstag, den 07.11.2024.\\
+Literatur: Metzler Physik, 4. Auflage, S. 382--383 \cite{Metzler2007}.
+
+\subsection{Compton-Effekt}
+
+Bei seinem Experiment beobachtete Compton in Abhängigkeit vom Streuwinkel $\theta$ die Spektren Abbildung \ref{fig:cpt:spektren}.
+Diese Beobachtung lässt sich nicht mit dem Wellencharakter des Lichts erklären.
+Nimmt man jedoch einen Teilchencharakter an, so kann man folgende Beziehung zwischen der Wellenlängenänderung $\Delta \lambda$ und dem Streuwinkel $\theta$ herleiten:
+\begin{align}
+ \Delta \lambda = \lambda' - \lambda = \frac{h}{m_{\text{0\el}} c}\, \left( 1 - \cos\theta \right)
+ \label{equ:cpt:ComptonFormel}
+\end{align}
+Die Herleitung dieser Formel ist in Abschnitt \ref{sec:cpt:herleitung} auf Seite \pageref{sec:cpt:herleitung} nachzulesen.
+
+Eine gute Übersicht über die Geschichte des Compton-Effekts liefert weiterhin das Video \cite{youtubeComptonEng}.
+Die mathematische Herleitung der obigen Formel gefällt mir persönlich aber in dem Video \cite{youtubeComptonDeu} besser.
+
+\subsubsection{Compton-Wellenlänge}
+
+Um sich einen Eindruck über die Größenordnung der Wellenlängenänderung zu verschaffen, hat man die sogenannte {\bfseries Compton-Wellenlänge} $\lambda_\text{C}$ als die Wellenlängenänderung bei $\theta = 90^\circ$ festgelegt:
+\begin{align}
+  \Delta \lambda_{90^\circ} = \lambda_\text{C} = 2.43\,\cdot\, 10^{-12}\,\text{m}
+  = 2.43\,\text{pm}
+\end{align}
+
+
+% \subsubsection{Versuchsbeobachtung}
+\begin{figure}
+\begin{center}
+  \includegraphics[width=.65\linewidth]{images/compdat.jpg}
+\end{center}
+\caption{Beim Compton-Effekt beobachtete Zählraten in Abhängigkeit vom Streuwinkel $\theta$.
+Bildquelle: Website \cite{CompDat}.
+\label{fig:cpt:spektren}}
+\end{figure}
+
+\begin{figure} 
+\centering
+\begin{tikzpicture}
+\draw [->] (0,0) -- (0,3,0) node [above] {$y$};
+\draw [black, thick ,-{Latex[length=4mm]},decorate, decoration={snake,amplitude=1mm,segment length=4mm,post length=4mm}, label=left:Incident photon] (-100pt,0pt) node[above]{Röntgenlicht mit Wellenlänge $\lambda$} -- (0,0pt);
+\draw [black, thick ,-{Latex[width=4mm, length=6]}] (3pt,0pt) -- (80pt,-40pt) node[right]{Gestreutes Elektron} coordinate (d);
+\node[starburst,inner color=orange,outer color=yellow,starburst points=11] at (0,0pt) {} coordinate (b);
+\shade[ball color=green!70!white] (48pt, -23pt) circle (.2cm);
+\draw [thick, ->] (5pt,0pt) -- (150pt,0pt) coordinate (a) node [right] {$x$};
+\draw [black, thick ,-{Latex[length=4mm]},decorate, decoration={snake,amplitude=1mm,segment length=4mm,post length=4mm}, label=left:Incident photon] (5pt,0pt) -- (100pt,50pt) node[above]{Röntgenlicht mit Wellenlänge $\lambda'$} coordinate (c);
+%\pic [black, draw, "$\theta$", angle eccentricity=0.8, angle radius=50pt] {angle = a--b--c};
+% \pic [black, draw, "$\varphi$", angle eccentricity=0.8, angle radius=38pt] {angle = d--b--a};
+\end{tikzpicture}
+\caption{Schematische Darstellung des Compton-Effekts. Bildquelle: TikZ-Code angepasst von \cite{stackCompton}
+\label{fig:cpt:compton}}
+\end{figure}
+
+\subsubsection{Herleitung der Compton-Formel mit dem Teilchenmodell}
+\label{sec:cpt:herleitung}
+\begin{minipage}{.7\linewidth}
+Wir nehmen an, dass das Licht aus Teilchen, den \emph{Photonen}, besteht und dass eines davon mit dem Teilchen \emph{Elektron} einen elastischen Stoss vollführt, siehe Abbildung \ref{fig:cpt:compton}.
+Unter dieser Annahme wollen wir zeigen, dass Gleichung \eqref{equ:cpt:ComptonFormel} gilt.
+
+Wenn wir einen elastischen Stoss \glqq durchrechnen\grqq, dann greifen wir auf die zwei fundamentalen Erhaltungssätze der Physik zurück:
+\begin{enumerate}[I)]\setlength\itemsep{0pt}
+ \item Impulserhaltung
+ \item Energieerhaltung
+\end{enumerate}
+Dazu führen wir die Bezeichungen an Rand ein und beginnen mit der {\bfseries Impulserhaltung}:
+\end{minipage}
+\hfill
+\begin{minipage}{.19\linewidth}
+\fbox{\parbox{\linewidth}{
+    {\small
+    {\bfseries Photon:}\\
+    $p_i\colon$ initialer Impuls\\
+    $E_i\colon$ initiale Energie\\
+    $p_f\colon$ finaler Impuls\\
+    $E_f\colon$ finaler Impuls\\~\\
+    {\bfseries Elektron:}\\
+    $p\colon$ Impuls\\
+    $K\colon$ Gesamtenergie
+    }}
+}
+\end{minipage}
+\begin{align*}
+ \text{Impulserhaltung in $x$-Richtung: }\qquad p_i &= p_f \cos\theta + p\cos\varphi\\
+ \text{Impulserhaltung in $y$-Richtung: }\qquad 0 &= p_f \sin\theta - p\sin\varphi
+\end{align*}
+Umgestellt nach dem Elektronenanteil ergeben diese Gleichungen:
+\begin{align}
+ \text{Impulserhaltung in $x$-Richtung: }&&\qquad p_i - p_f \cos\theta &= p\cos\varphi\label{equ:cpt:ImpulsX}\\
+ \text{Impulserhaltung in $y$-Richtung: }&&\qquad p_f \sin\theta &= p\sin\varphi\label{equ:cpt:ImpulsY}
+\end{align}
+Wir wollen nun beide Gleichungen zusammen verwenden, um den Winkel $\varphi$ zu eliminieren.
+Dazu quadrieren wir die Gleichungen \eqref{equ:cpt:ImpulsX} und \eqref{equ:cpt:ImpulsY} erst und addieren sie dann.
+So erhalten wir:
+\begin{align}
+ \left( p_i - p_f \cos\theta\right)^2 + \left( p_f \sin\theta \right)^2 = \left( p\cos\varphi \right)^2 + \left( p\sin\varphi \right)^2
+ \label{equ:cpt:SquaredAdded}
+\end{align}
+Zuerst bearbeiten wir die rechte Seite von Gleichung \eqref{equ:cpt:SquaredAdded}, wobei wir im letzten Schritt den trigonometrischen Pythagoras anwenden:
+\begin{align}
+ \left( p\cos\varphi \right)^2 + \left( p\sin\varphi \right)^2 \quad=~ p^2 \cos^2\varphi + p^2 \sin^2\varphi
+ \quad=~ p^2 \underbrace{\left( \cos^2\varphi + \sin^2\varphi \right)}_{=1} \quad=~ p^2\, .
+ \label{equ:cpt:RHS}
+\end{align}
+Dann bearbeiten wir noch die linke Seite von Gleichung \eqref{equ:cpt:SquaredAdded}, indem wir mithilfe der binomischen Formel ausmultiplizieren:
+\begin{align*}
+ \left( p_i - p_f \cos\theta\right)^2 + \left( p_f \sin\theta \right)^2
+ \quad=~ \underbrace{p_i^2 - 2p_i p_f \cos\theta + p_f^2 \cos^2\theta}_{\text{binomische Formel}} + p_f^2 \sin^2 \theta
+\end{align*}
+Die letzten beiden Summanden fassen wir noch mit dem trigonometrischen Pythagoras zusammen und erhalten
+\begin{align}
+ p_i^2 - 2p_i p_f \cos\theta + \underbrace{p_f^2 \cos^2\theta + p_f^2 \sin^2 \theta}_{=p_f^2 \left(\cos^2\theta + \sin^2 \theta\right) ~=~ p_f^2}
+ \quad= p_i^2 - 2p_i p_f \cos\theta + p_f^2
+ \label{equ:cpt:LHS}
+\end{align}
+Nun setzten wir die Gleichungen \eqref{equ:cpt:RHS} und \eqref{equ:cpt:LHS} wieder in \eqref{equ:cpt:SquaredAdded} ein und erhalten aus der Impulserhalten folgende Beziehung:
+\begin{align}
+ \fbox{\parbox{4cm}{$p_i^2 - 2p_i p_f \cos\theta + p_f^2 = p^2$}}
+ \label{equ:cpt:Impulserhaltung}
+\end{align}
+D.h. wir haben nun schon einmal eine Formel, die Anfangs- und Endimpuls des Photons in Beziehung setzt.
+Das ist gut.
+Allerdings gibt es in der obigen Formel immer noch eine Abhängigkeit vom Elektronenimpuls $p$, die wir eliminieren müssen.
+
+Zu diesem Zweck verwenden wir noch die {\bfseries Energieerhaltung}.\\
+Da das gestreute Elektron eine sehr hohe Energie haben wird, müssen wir die Rechnung relativistisch durchführen und vor dem Stoss die Masseenergie des Elektrons berücksichtigen.
+Deshalb erhalten wir folgende Energiebilanzierung für den Compton-Effekt:
+\begin{align*}
+  \underbrace{E_i + m_{0\el} c^2}_{\text{Energie vor dem Stoss}} = \underbrace{E_f + K}_{\text{Energie nach dem Stoss}} \qquad \Rightarrow\qquad E_f - E_f + m_{0\el} c^2 = K
+\end{align*}
+Da das Photon keine Ruhemasse besitzt, können wir für die Energien $E_i$ und $E_f$ direkt die kinetische Energie einsetzen:
+\begin{align*}
+  E_i = p_i c \qquad\text{und}\qquad E_f = p_f c
+\end{align*}
+Dies setzen wir in die Energiebilanzierung des Compton-Effekts ein:
+\begin{align}
+  c\left(  p_i - p_f \right) + m_{0\el} c^2 = K
+  \label{equ:cpt:EnergieErhaltung}
+\end{align}
+
+Nun müssen wir noch die Gesamtenergie $K$ des Elektrons in Abhängigkeit seines Impulses $p$ einsetzen.
+Durch die relativistische Massenzunahme des Elektrons gilt allgemein für die Gesamtenergie $K$ des Elektrons (Herleitung siehe Anhang \ref{sec:cpt:relativity} auf Seite \pageref{sec:cpt:relativity}):
+\begin{align}
+  K^2 = c^2 p^2 + \left( m_{0\el} c^2\right)^2\, .
+  \label{equ:cpt:EnergieImpuls}
+\end{align}
+
+Wir wollen die allgemein gültige Gleichung \eqref{equ:cpt:EnergieImpuls} in die Energiebilanzierung \eqref{equ:cpt:EnergieErhaltung} des Compton-Effekts einsetzen.
+Dafür müssen wir Gl. \eqref{equ:cpt:EnergieErhaltung} quadrieren:
+\begin{align*}
+ \underbrace{\left[ c\left(  p_i - p_f \right) + m_{0\el} c^2 \right]^2}_{\text{Gl. \ref{equ:cpt:EnergieErhaltung}}} \quad=\quad K^2 \quad=\quad \underbrace{ c^2 p^2 + \left( m_{0\el} c^2\right)^2}_{\text{Gl. \ref{equ:cpt:EnergieImpuls}}}
+\end{align*}
+Wir tun jetzt zwei Dinge gleichzeitig:
+Wir verwenden auf der linken Seite die binomische Formel um das Quadrat in eine Summe zu verwandeln und setzen gleichzeitig auf der rechten Seite für $p^2$ die Formel von Gleichung \eqref{equ:cpt:Impulserhaltung} ein.
+\begin{align*}
+ c^2\left(  p_i - p_f \right)^2 + 2c^3\left(  p_i - p_f \right)m_{0\el} + m^2_{0\el} c^4 \quad&=\quad c^2 \left[ p_i^2 - 2p_i p_f \cos\theta + p_f^2 \right] + \left( m_{0\el} c^2\right)^2 \qquad &&\biggl|\, -\left( m_{0\el} c^2\right)^2\\~\\
+ c^2\left(  p_i - p_f \right)^2 + 2c^3\left(  p_i - p_f \right)m_{0\el} \quad&=\quad c^2 \left[ p_i^2 - 2p_i p_f \cos\theta + p_f^2 \right] \qquad &&\biggl|\, :c^2\\~\\
+ \left(  p_i - p_f \right)^2 + 2c\left(  p_i - p_f \right)m_{0\el} \quad&=\quad p_i^2 - 2p_i p_f \cos\theta + p_f^2\\~\\
+\intertext{Jetzt wenden wir links die binomische Formel an.}
+ p_i^2 - 2p_i p_f + p_f^2 + 2c\left(  p_i - p_f \right)m_{0\el} \quad&=\quad p_i^2 - 2p_i p_f \cos\theta + p_f^2 \qquad &&\biggl|\, -p_i^2 -p_f^2\\~\\
+ - 2p_i p_f + 2c\left(  p_i - p_f \right)m_{0\el} \quad&=\quad - 2p_i p_f \cos\theta \qquad &&\biggl|\, :\left( 2p_i p_f \right)\\~\\
+ -1 + m_{0\el}c\cdot \left( \frac{1}{p_f} - \frac{1}{p_i} \right)\quad&=\quad -\cos\theta&&\biggl|\, +1\\~\\
+ m_{0\el}c\cdot \left( \frac{1}{p_f} - \frac{1}{p_i} \right)\quad&=\quad 1-\cos\theta&&\biggl|\, :(m_{0\el}c)\\~\\
+ \frac{1}{p_f} - \frac{1}{p_i}\quad&=\quad \frac{1}{m_{0\el}c} \left( 1-\cos\theta \right)&&\biggl|\, \cdot\, h\\~\\
+ \frac{h}{p_f} - \frac{h}{p_i}\quad&=\quad \frac{h}{m_{0\el}c} \left( 1-\cos\theta \right)
+\end{align*}
+Die rechte Seite der Gleichung sieht schon so aus wie die in Gleichung \eqref{equ:cpt:ComptonFormel}.
+Im letzten Schritt müssen wir nur noch $\lambda = h/p$ einsetzen und erhalten:
+\begin{align*}
+ \lambda' - \lambda \quad&=\quad \frac{h}{m_{0\el}c} \left( 1-\cos\theta \right)
+\end{align*}
+Dies ist Gleichung \eqref{equ:cpt:ComptonFormel}.
+
+
+\section{Photonen im Raum}
+
+
+\newpage
+
+\sloppy
+\printbibliography[notkeyword=figure, notkeyword=misc]
+
+\printbibliography[title={Quellenverzeichnis der Abbildungen}, keyword=figure, heading=secbib]
+\printbibliography[title={Verzeichnis weiterer Quellen}, keyword=misc, heading=secbib]
+
+
+\appendix
+
+\clearpage
+\pagenumbering{arabic}% resets `page` counter to 1
+\renewcommand*{\thepage}{A\arabic{page}}
+
+\thispagestyle{empty}
+\etocdepthtag.toc{mtappendix}
+\thispagestyle{empty}
+\etocsettagdepth{mtchapter}{none}
+\etocsettagdepth{mtappendix}{subsection}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+
+\chapter{Einführung in die Quantenphysik}
+\section{Quantelung des Lichts}
+% \subsection{Hallwachs-Versuch}
+% \subsection{Bestimmung von $h$ mit der Gegenfeldmethode}
+% \subsection{Umkehrung des Fotoeffekts mit LEDs}
+% \subsection{Kurzwellige Grenze von Röntgenlicht}
+\subsection{Compton-Effekt}
+\subsubsection{Zur Herleitung der Compton-Formel}
+\paragraph{Exkurs Energie, Impuls und relativistische Massenzunahme.}
+\label{sec:cpt:relativity}
+Im Unterricht konntet ihr euch an folgende Formel zur relativistischen Massezunahme erinnern:
+\begin{align}
+  m = \frac{m_0}{\sqrt{1 - \frac{v^2}{c^2}}}
+  \label{equ:cpt:Massenzunahme}
+\end{align}
+Wir wollen dies benutzen um die Gleichung
+\begin{align}
+  E = mc^2
+  \label{equ:cpt:Emc2}
+\end{align}
+in Gleichung \eqref{equ:cpt:EnergieImpuls} auf Seite \pageref{equ:cpt:EnergieImpuls} zu überführen.
+Zuerst aber quadrieren wir Gleichung \eqref{equ:cpt:Emc2}, spalten eine 1 ab und addieren eine gewinnbringende Null:
+\begin{align*}
+  E^2 \quad=~ m^2 c^4 \quad=~ m^2 c^4 \cdot 1 \quad=~ m^2 c^4 \cdot \left( \frac{v^2}{c^2} + 1 - \frac{v^2}{c^2} \right)
+\end{align*}
+Jetzt multiplizieren wir einmal aus:
+\begin{align*}
+ E^2 \quad=~ \frac{m^2 c^4 v^2}{c^2} + m^2 c^4 \cdot \left( 1 - \frac{v^2}{c^2} \right)
+ \quad=~ m^2 c^2 v^2 + m^2 c^4 \cdot \left( 1 - \frac{v^2}{c^2} \right)\, .
+\end{align*}
+Hier erkennen wir schon den ersten Term von Gleichung \eqref{equ:cpt:EnergieImpuls}, denn $p = mv$ und deshalb: $m^2 c^2 v^2 = p^2 c^2$.
+Also sehen wir schon hier:
+\begin{align*}
+ E^2 = p^2 c^2 + m^2 c^4 \cdot \left( 1 - \frac{v^2}{c^2} \right)\, .
+\end{align*}
+Im zweiten Summanden ersetzen wir nun $m$ durch die relativistische Formel in Gleichung \eqref{equ:cpt:Massenzunahme}:
+\begin{align*}
+ E^2 = p^2 c^2 + \frac{m_{0}^2 c^4}{1 - \frac{v^2}{c^2}} \cdot \left( 1 - \frac{v^2}{c^2} \right)\, .
+\end{align*}
+Kürzen ergibt:
+\begin{align}
+ E^2 \quad=\quad p^2 c^2 + m_{0}^2 c^4 \quad=\quad p^2 c^2 + \left( m_{0} c^2 \right)^2 \, .
+\end{align}
+Ersetzen wir noch $E$ durch $K$ und $m_0$ durch $m_{0\el}$, so erhalten wir Gleichung \eqref{equ:cpt:EnergieImpuls}.
+
+\end{document}
